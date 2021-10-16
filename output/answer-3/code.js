@@ -11,15 +11,15 @@ function swap(arr, i, j) {
 function sort(data) {
     const n = data.length;
     for (let i = 0; i < n - 1; i++) {
-        for (let j = i + 1; j < n - i; j++) {
-            if (Number(data[j]["Red Cards"]) < Number(data[j]["Red Cards"]))
-                swap(data, i, j);
+        for (let j = 0; j < n - i - 1; j++) {
+            if (Number(data[j]["Red Cards"]) < Number(data[j + 1]["Red Cards"]))
+                swap(data, j, j + 1);
 
             if (
                 Number(data[j]["Yellow Cards"]) <
-                Number(data[j]["Yellow Cards"])
+                Number(data[j + 1]["Yellow Cards"])
             )
-                swap(data, i, j);
+                swap(data, j, j + 1);
         }
     }
 }
