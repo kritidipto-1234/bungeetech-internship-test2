@@ -27,6 +27,10 @@ async function task() {
         transformedResult.push({ occupation, ...minmaxdata });
     }
 
+    transformedResult.sort((a, b) => {
+        return a.occupation.localCompare(b.occupation);
+    });
+
     const csvData = JSONToCSV(transformedResult, {
         fields: ["occupation", "min", "max"],
     });
