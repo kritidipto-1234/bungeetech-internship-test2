@@ -6,4 +6,4 @@ Run
 
 Both commands to be run in . directory.
 
-Or move directly to answer-\* driectories and run node code.js.
+Or move directly to ./output/answer-\* directories and run node code.js.
