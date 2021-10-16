@@ -10,18 +10,26 @@ function swap(arr, i, j) {
 
 function sort(data) {
     const n = data.length;
-    for (let i = 0; i < n - 1; i++) {
-        for (let j = 0; j < n - i - 1; j++) {
-            if (Number(data[j]["Red Cards"]) < Number(data[j + 1]["Red Cards"]))
+    let swapped = 1;
+    while (swapped !== 0) {
+        swapped = 0;
+        for (let j = 0; j < n - 1; j++) {
+            if (
+                Number(data[j]["Red Cards"]) < Number(data[j + 1]["Red Cards"])
+            ) {
                 swap(data, j, j + 1);
+                swapped = 1;
+            }
 
             if (
                 Number(data[j]["Red Cards"]) ===
                     Number(data[j + 1]["Red Cards"]) &&
                 Number(data[j]["Yellow Cards"]) <
                     Number(data[j + 1]["Yellow Cards"])
-            )
+            ) {
                 swap(data, j, j + 1);
+                swapped = 1;
+            }
         }
     }
 }
