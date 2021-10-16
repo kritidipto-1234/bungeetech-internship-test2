@@ -39,7 +39,7 @@ async function task() {
     const csvData = JSONToCSV(transformedResult, {
         fields: ["Decade", ...fields],
     });
-    fs.writeFileSync("./output.csv", csvData);
+    fs.writeFileSync("./main.csv", csvData);
 }
 
 task();
