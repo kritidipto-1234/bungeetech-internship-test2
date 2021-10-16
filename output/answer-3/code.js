@@ -8,19 +8,11 @@ function swap(arr, i, j) {
     arr[j] = temp;
 }
 
-function sort(data) {
+function sort(data, attribute) {
     const n = data.length;
     for (let i = 0; i < n - 1; i++) {
         for (let j = 0; j < n - i - 1; j++) {
-            if (Number(data[j]["Red Cards"]) < Number(data[j + 1]["Red Cards"]))
-                swap(data, j, j + 1);
-
-            if (
-                Number(data[j]["Red Cards"]) <
-                    Number(data[j + 1]["Red Cards"]) &&
-                Number(data[j]["Yellow Cards"]) <
-                    Number(data[j + 1]["Yellow Cards"])
-            )
+            if (Number(data[j][attribute]) < Number(data[j + 1][attribute]))
                 swap(data, j, j + 1);
         }
     }
@@ -29,7 +21,8 @@ function sort(data) {
 async function task() {
     const data = await CSVToJSON().fromFile("../../input/question-3/main.csv");
 
-    sort(data);
+    sort(data, "Red Cards");
+    sort(data, "Yellow Cards");
 
     const csvData = JSONToCSV(data, {
         fields: ["Team", "Yellow Cards", "Red Cards"],
