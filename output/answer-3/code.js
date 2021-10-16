@@ -14,8 +14,7 @@ function sort(data) {
         for (let j = 0; j < n - i - 1; j++) {
             if (Number(data[j]["Red Cards"]) < Number(data[j + 1]["Red Cards"]))
                 swap(data, j, j + 1);
-
-            if (
+            else if (
                 Number(data[j]["Yellow Cards"]) <
                 Number(data[j + 1]["Yellow Cards"])
             )
