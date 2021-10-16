@@ -3,7 +3,9 @@ const CSVToJSON = require("csvtojson");
 const JSONToCSV = require("json2csv").parse;
 
 async function task() {
-    const data = await CSVToJSON().fromFile("../../input/question-1/main.csv");
+    const data = await CSVToJSON().fromFile(
+        `${__dirname}/../../input/question-1/main.csv`
+    );
     data.sort((a, b) => Number(a.Year) - Number(b.Year));
     const fields = Object.keys(data[0]);
     fields.splice(fields.indexOf("Year"), 1);
@@ -39,7 +41,8 @@ async function task() {
     const csvData = JSONToCSV(transformedResult, {
         fields: ["Decade", ...fields],
     });
-    fs.writeFileSync("./main.csv", csvData);
+    fs.writeFileSync(`${__dirname}/main.csv`, csvData);
 }
 
 task();
+console.log("Generating Output 1");

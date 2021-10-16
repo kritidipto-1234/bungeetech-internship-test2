@@ -3,7 +3,9 @@ const CSVToJSON = require("csvtojson");
 const JSONToCSV = require("json2csv").parse;
 
 async function task() {
-    const data = await CSVToJSON().fromFile("../../input/question-2/main.csv");
+    const data = await CSVToJSON().fromFile(
+        `${__dirname}/../../input/question-2/main.csv`
+    );
     const result = {};
 
     for (const { occupation, age } of data) {
@@ -34,7 +36,8 @@ async function task() {
     const csvData = JSONToCSV(transformedResult, {
         fields: ["occupation", "min", "max"],
     });
-    fs.writeFileSync("./main.csv", csvData);
+    fs.writeFileSync(`${__dirname}/main.csv`, csvData);
 }
 
 task();
+console.log("Generating Output 2");

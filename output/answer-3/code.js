@@ -35,14 +35,17 @@ function sort(data) {
 }
 
 async function task() {
-    const data = await CSVToJSON().fromFile("../../input/question-3/main.csv");
+    const data = await CSVToJSON().fromFile(
+        `${__dirname}/../../input/question-3/main.csv`
+    );
 
     sort(data);
 
     const csvData = JSONToCSV(data, {
         fields: ["Team", "Yellow Cards", "Red Cards"],
     });
-    fs.writeFileSync("./main.csv", csvData);
+    fs.writeFileSync(`${__dirname}/main.csv`, csvData);
 }
 
 task();
+console.log("Generating Output 3");

@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "deploy": "git add . &&  git commit -m'some changes' && git push"
+        "deploy": "git add . &&  git commit -m'some changes' && git push",
+        "generate": "node ./output/answer-1/code.js && node ./output/answer-2/code.js && node ./output/answer-3/code.js"
     },
     "repository": {
         "type": "git",
