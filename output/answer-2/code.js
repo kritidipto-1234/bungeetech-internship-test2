@@ -28,7 +28,7 @@ async function task() {
     }
 
     transformedResult.sort((a, b) => {
-        return a.occupation.localCompare(b.occupation);
+        return a.occupation.localeCompare(b.occupation);
     });
 
     const csvData = JSONToCSV(transformedResult, {
